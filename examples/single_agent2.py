@@ -27,12 +27,12 @@ class ChaseViaPointsAgent(Agent):
             len(obs.via_data.near_via_points) < 1
             or obs.ego_vehicle_state.road_id != obs.via_data.near_via_points[0].road_id
         ):
-            # choice = random.randint(-1, 1)
-            choice = 0
+            choice = random.randint(-1, 1)
+            # choice = 0;
             # print(f"Mine Chouse {choice}")
             return obs.waypoint_paths[0][0].speed_limit, choice
 
-        # print("+=============================== SNACKBAR 2")
+        print("+=============================== SNACKBAR 2")
         nearest = obs.via_data.near_via_points[0]
         if nearest.lane_index == obs.ego_vehicle_state.lane_index:
             return nearest.required_speed, 0
